@@ -15,6 +15,7 @@ class HomeActivity : AppCompatActivity() {
     fun handleClick(view: View) {
 //        kotlin says that you cant have a variable as null, billion dollar , null pointer exceptions
         var intent = Intent(this, MainActivity::class.java) // no need for new keyword
+
         startActivity(intent)
 
         Toast.makeText(this, "Starting and routing to MainActivity", Toast.LENGTH_SHORT).show()
