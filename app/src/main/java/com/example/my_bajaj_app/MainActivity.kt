@@ -1,5 +1,6 @@
 package com.example.my_bajaj_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickHandler(view: View) {
-        Toast.makeText(this, "this is a toast", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Starting and Routing to Home Activity", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, HomeActivity::class.java))
+
     }
 }
