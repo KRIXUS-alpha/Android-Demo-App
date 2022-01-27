@@ -17,4 +17,9 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, HomeActivity::class.java))
 
     }
+
+    fun clickHandlerJava(view: View) {
+        Toast.makeText(this, "Starting and Routing to Java Activity", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this,JavaActivity::class.java))
+    }
 }
