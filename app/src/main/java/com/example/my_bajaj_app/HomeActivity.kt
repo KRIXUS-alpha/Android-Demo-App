@@ -33,16 +33,16 @@ class HomeActivity : AppCompatActivity() {
         storeState();
     }
 
-    //view-tool windows-file exploreer-data/data/yourpackage/sharedprefs/filename
+    //view-tool windows-file exploreer-com.example.my_bajaj_app.data/com.example.my_bajaj_app.data/yourpackage/sharedprefs/filename
     private fun storeState() {
-        //get the data from the edittext
+        //get the com.example.my_bajaj_app.data from the edittext
         var contact: String = etContact.text.toString()
         var email = etEmail.text.toString()
         //create file home_state_prefs
         var sharedPreferences = getSharedPreferences("home_state_prefs", MODE_PRIVATE)
         //open the file in edit mode
         var editor = sharedPreferences.edit()
-        //write the data to the file
+        //write the com.example.my_bajaj_app.data to the file
         editor.putString("cont",contact)
         editor.putString("eml",email)
         //save the file
@@ -59,10 +59,10 @@ class HomeActivity : AppCompatActivity() {
     private fun restoreState() {
         //open the file home_state
         var sharedPreferences = getSharedPreferences("home_state_prefs", MODE_PRIVATE)
-        //read the data from the file
+        //read the com.example.my_bajaj_app.data from the file
         var contact = sharedPreferences.getString("cont","")
         var email = sharedPreferences.getString("eml","")
-        //set the data into the edittexts
+        //set the com.example.my_bajaj_app.data into the edittexts
         etContact.setText(contact)
         etEmail.setText(email)
     }
