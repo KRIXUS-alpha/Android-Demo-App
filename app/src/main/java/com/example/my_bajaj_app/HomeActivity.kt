@@ -1,6 +1,7 @@
 package com.example.my_bajaj_app
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,7 +14,21 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun handleClick(view: View) {
-//        kotlin says that you cant have a variable as null, billion dollar , null pointer exceptions
+        when(view.id){
+            R.id.startMain -> startMainAct()
+            R.id.call101-> startDialer()
+        }
+
+
+    }
+
+    private fun startDialer(){
+        var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:191"))
+        startActivity(dialIntent)
+    }
+
+    private fun startMainAct() {
+        //        kotlin says that you cant have a variable as null, billion dollar , null pointer exceptions
         var intent = Intent(this, MainActivity::class.java) // no need for new keyword
 
         startActivity(intent)

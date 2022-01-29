@@ -7,12 +7,12 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/startMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="111dp"
         android:onClick="handleClick"
-        android:text="Button"
+        android:text="start activity Main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
@@ -39,4 +39,13 @@
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/call101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Call 101"
+        android:onClick="handleClick"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="520dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
