@@ -5,12 +5,18 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 
 class HomeActivity : AppCompatActivity() {
+    lateinit var etContact: EditText
+    lateinit var etEmail: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        etContact = findViewById(R.id.etContact)
+        etEmail = findViewById(R.id.etEmail)
     }
 
     fun handleClick(view: View) {
@@ -21,6 +27,48 @@ class HomeActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onPause() {
+        super.onPause()
+        storeState();
+    }
+
+    //view-tool windows-file exploreer-data/data/yourpackage/sharedprefs/filename
+    private fun storeState() {
+        //get the data from the edittext
+        var contact: String = etContact.text.toString()
+        var email = etEmail.text.toString()
+        //create file home_state_prefs
+        var sharedPreferences = getSharedPreferences("home_state_prefs", MODE_PRIVATE)
+        //open the file in edit mode
+        var editor = sharedPreferences.edit()
+        //write the data to the file
+        editor.putString("cont",contact)
+        editor.putString("eml",email)
+        //save the file
+        editor.apply() //appply is asynchronous
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        restoreState();
+    }
+
+
+    private fun restoreState() {
+        //open the file home_state
+        var sharedPreferences = getSharedPreferences("home_state_prefs", MODE_PRIVATE)
+        //read the data from the file
+        var contact = sharedPreferences.getString("cont","")
+        var email = sharedPreferences.getString("eml","")
+        //set the data into the edittexts
+        etContact.setText(contact)
+        etEmail.setText(email)
+    }
+
+
+
 
     private fun startDialer(){
         var dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:191"))
